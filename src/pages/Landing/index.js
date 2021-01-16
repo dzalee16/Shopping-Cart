@@ -1,10 +1,8 @@
 import React from "react";
-import Header from "../../components/Header";
 
 const Landing = () => {
   return (
     <main className="landing">
-      <Header />
       <h1>Landing - Shooping Cart</h1>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting

@@ -9,10 +9,7 @@ const SignIn = () => {
     e.preventDefault();
     auth
       .signInWithEmailAndPassword(email, password)
-      .then((cred) => {
-        console.log("User are signIn");
-        console.log(cred.user);
-      })
+      .then((cred) => {})
       .catch((err) => {
         console.log("User are not signIn" + err);
       });

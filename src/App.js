@@ -1,23 +1,38 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import Landing from "./pages/Landing";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
+import Home from "./pages/Home";
+import Header from "./components/Header";
+import UserContextProvider from "./context/UserContext";
+import PublicRoute from "./routes/PublicRoute";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 const App = () => {
   return (
     <main className="app">
-      <Router>
-        <Route exact path="/">
-          <Landing />
-        </Route>
-        <Route path="/signin">
-          <SignIn />
-        </Route>
-        <Route path="/signup">
-          <SignUp />
-        </Route>
-      </Router>
+      <UserContextProvider>
+        <Router>
+          <Switch>
+            <PublicRoute exact path="/">
+              <Header />
+              <Landing />
+            </PublicRoute>
+
+            <PublicRoute exact path="/signin">
+              <SignIn />
+            </PublicRoute>
+
+            <PublicRoute exact path="/signup">
+              <SignUp />
+            </PublicRoute>
+
+            <ProtectedRoute exact path="/home">
+              <Home />
+            </ProtectedRoute>
+          </Switch>
+        </Router>
+      </UserContextProvider>
     </main>
   );
 };
