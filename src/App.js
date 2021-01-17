@@ -4,19 +4,46 @@ import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Home from "./pages/Home";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import UserContextProvider from "./context/UserContext";
 import PublicRoute from "./routes/PublicRoute";
 import ProtectedRoute from "./routes/ProtectedRoute";
+import BgImage from "./assets/images/string.jpg";
+import {createGlobalStyle} from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Shadows+Into+Light&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: linear-gradient( rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.7) ), url(${BgImage});
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100%;
+    position: relative;
+    font-family: "Courgette", cursive;
+    color: white;
+  }
+`
 
 const App = () => {
   return (
     <main className="app">
+      <GlobalStyle/>
       <UserContextProvider>
         <Router>
           <Switch>
             <PublicRoute exact path="/">
               <Header />
               <Landing />
+              <Footer />
             </PublicRoute>
 
             <PublicRoute exact path="/signin">

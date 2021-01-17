@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import {auth} from "../../services/fireConfig";
+import {Navigation, GuitarLogo, Ul, Li, SignOutButton} from "./styled.js"
+import Logo from "../../assets/images/logo.svg";
 
 const Header = () => {
   const userContext = useContext(UserContext);
@@ -12,34 +14,34 @@ const Header = () => {
   }
 
   return (
-    <main className="header">
+    <header>
       {user ? (
         <React.Fragment>
-          <nav>
-            <p>Logo</p>
-            <ul>
-              <li>
-                <button onClick={handleSignOut}>SignOut</button>
-              </li>
-            </ul>
-          </nav>
+          <Navigation>
+            <GuitarLogo src={Logo} />
+            <Ul>
+              <Li>
+                <SignOutButton onClick={handleSignOut}>SignOut</SignOutButton>
+              </Li>
+            </Ul>
+          </Navigation>
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <nav>
-            <p>Logo</p>
-            <ul>
-              <li>
+          <Navigation>
+            <GuitarLogo src={Logo} />
+            <Ul>
+              <Li>
                 <Link to="/signin">SignIn</Link>
-              </li>
-              <li>
+              </Li>
+              <Li>
                 <Link to="/signup">SignUp</Link>
-              </li>
-            </ul>
-          </nav>
+              </Li>
+            </Ul>
+          </Navigation>
         </React.Fragment>
       )}
-    </main>
+    </header> 
   );
 };
 
