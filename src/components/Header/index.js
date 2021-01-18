@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../context/UserContext";
 import {auth} from "../../services/fireConfig";
-import {Navigation, GuitarLogo, Ul, Li, SignOutButton} from "./styled.js"
+import { UserContext } from "../../context/UserContext";
+import {Navigation, GuitarLogo, Ul, Lipublic, Liprotected, Username, SignOut} from "./styled.js"
 import Logo from "../../assets/images/logo.svg";
 
 const Header = () => {
   const userContext = useContext(UserContext);
   const {user} = userContext;
+  const {username} = userContext;
 
   const handleSignOut = () => {
     auth.signOut();
@@ -20,9 +21,14 @@ const Header = () => {
           <Navigation>
             <GuitarLogo src={Logo} />
             <Ul>
-              <Li>
-                <SignOutButton onClick={handleSignOut}>SignOut</SignOutButton>
-              </Li>
+              <Liprotected>
+                <Username>Username: {username}</Username>
+              </Liprotected>
+              <Liprotected onClick={handleSignOut}>
+                <SignOut>
+                  SignOut
+                </SignOut>
+              </Liprotected>
             </Ul>
           </Navigation>
         </React.Fragment>
@@ -31,12 +37,12 @@ const Header = () => {
           <Navigation>
             <GuitarLogo src={Logo} />
             <Ul>
-              <Li>
+              <Lipublic>
                 <Link to="/signin">SignIn</Link>
-              </Li>
-              <Li>
+              </Lipublic>
+              <Lipublic>
                 <Link to="/signup">SignUp</Link>
-              </Li>
+              </Lipublic>
             </Ul>
           </Navigation>
         </React.Fragment>

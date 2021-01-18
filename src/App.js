@@ -12,8 +12,6 @@ import BgImage from "./assets/images/string.jpg";
 import {createGlobalStyle} from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Shadows+Into+Light&display=swap');
-
   * {
     margin: 0;
     padding: 0;
@@ -28,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
     background-repeat: no-repeat;
     height: 100vh;
     position: relative;
-    font-family: "Courgette", cursive;
+    font-family: "Oswald", sans-serif;
     color: white;
   }
 `

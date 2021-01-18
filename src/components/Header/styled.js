@@ -18,7 +18,7 @@ export const Ul = styled.ul`
   list-style-type: none;
 `
 
-export const Li = styled.li`
+export const Lipublic = styled.li`
   &:hover {
     background: rgba(0, 0, 0, 0.8);
     border: 1px solid white;
@@ -33,14 +33,22 @@ export const Li = styled.li`
   }
 `
 
-export const SignOutButton = styled.button`
-  padding: 15px;
-  background: rgba(0, 0, 0, 0.2);
-  color: white;
+export const Liprotected = styled.li`
+  padding: 10px;
   font-weight: 600;
-  cursor: pointer;
+`
 
-  &:hover {
-    background: rgba(0, 0, 0, 0.9);
-  }
-` 
+export const Username = styled.span`
+  padding: 10px;
+  border:1px solid white;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+`
+
+export const SignOut = styled.span`
+  padding: 10px;
+  border:1px solid white;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  cursor:pointer;
+`
