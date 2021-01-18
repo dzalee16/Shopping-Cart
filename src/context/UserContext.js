@@ -1,15 +1,17 @@
 import React, { useState, useEffect, createContext } from "react";
-import { auth } from "../services/fireConfig";
+import { auth, firestore } from "../services/fireConfig";
 
 export const UserContext = createContext();
 
 const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [username, setUsername] = useState("");
 
   const userContext = {
     user: user,
-    isLoading: isLoading
+    isLoading: isLoading,
+    username: username
   };
 
   useEffect(() => {
@@ -18,6 +20,15 @@ const UserContextProvider = ({ children }) => {
       if (user) {
         console.log("User is signIn", user);
         setIsLoading(false);
+        return firestore.collection("users").doc(user.uid).get()
+        .then(res => {
+          if(res.exists){
+            console.log(res.data())
+            const data = res.data();
+            setUsername(data.username);
+          }
+        })
+        .catch(err => console.log("Error", err))
       } else {
         console.log("User is signOut", user);
         setIsLoading(false);

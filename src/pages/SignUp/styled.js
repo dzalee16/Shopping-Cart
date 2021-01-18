@@ -9,14 +9,15 @@ export const Content = styled.div`
   line-height: 1.5rem;
 
   h1 {
-      padding: 20px;
+    margin-top: 50px;
+    padding: 20px;
   }
 `
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 450px;
   width: 300px;
   border: 1px solid white;
   border-radius: 10px;
@@ -45,7 +46,7 @@ export const Form = styled.form`
       padding: 10px;
       width: 90%;
       align-self: center;
-      margin-top: 2rem;
+      margin: 1rem 0;
       background: rgba(0,0,0,0.8);
       border: 1px solid black;
       color: white;
@@ -57,4 +58,11 @@ export const Form = styled.form`
         border: 1px solid white; 
       }
   }
+`
+
+export const ErrorMessage = styled.div`
+  color: red;
+  text-align: center;
+  font-weight: 800;
+  font-size: 18px;
 `
