@@ -5,7 +5,7 @@ import Guitars from "../../assets/images/guitars.jpg";
 const Landing = () => {
   return (
     <Content className="landing">
-      <h1>Shooping Cart</h1>
+      <h1>Guitars shop</h1>
       <Para>
         Lorem IParasum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever

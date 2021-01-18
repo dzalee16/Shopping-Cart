@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { auth } from "../../services/fireConfig";
+import {Content, Form} from "./styled.js";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -18,9 +19,9 @@ const SignIn = () => {
   };
 
   return (
-    <main className="signin">
-      <h1>SignIn Page</h1>
-      <form onSubmit={handleSubmit}>
+    <Content>
+      <h1>SignIn</h1>
+      <Form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
         <input
           type="email"
@@ -38,8 +39,8 @@ const SignIn = () => {
         />
         <br />
         <button type="submit">SignIn</button>
-      </form>
-    </main>
+      </Form>
+    </Content>
   );
 };
 

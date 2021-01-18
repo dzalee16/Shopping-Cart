@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    height: 100%;
+    height: 100vh;
     position: relative;
     font-family: "Courgette", cursive;
     color: white;
@@ -35,32 +35,30 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => {
   return (
-    <main className="app">
+    <UserContextProvider>
       <GlobalStyle/>
-      <UserContextProvider>
-        <Router>
-          <Switch>
-            <PublicRoute exact path="/">
-              <Header />
-              <Landing />
-              <Footer />
-            </PublicRoute>
+      <Router>
+        <Switch>
+          <PublicRoute exact path="/">
+            <Header />
+            <Landing />
+            <Footer />
+          </PublicRoute>
 
-            <PublicRoute exact path="/signin">
-              <SignIn />
-            </PublicRoute>
+          <PublicRoute exact path="/signin">
+            <SignIn />
+          </PublicRoute>
 
-            <PublicRoute exact path="/signup">
-              <SignUp />
-            </PublicRoute>
+          <PublicRoute exact path="/signup">
+            <SignUp />
+          </PublicRoute>
 
-            <ProtectedRoute exact path="/home">
-              <Home />
-            </ProtectedRoute>
-          </Switch>
-        </Router>
-      </UserContextProvider>
-    </main>
+          <ProtectedRoute exact path="/home">
+            <Home />
+          </ProtectedRoute>
+        </Switch>
+      </Router>
+    </UserContextProvider>
   );
 };
 
