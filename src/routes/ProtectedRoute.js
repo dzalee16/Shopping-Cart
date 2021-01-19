@@ -4,6 +4,7 @@ import { UserContext } from "../context/UserContext";
 import {ReactComponent as Loader} from "../assets/spinner.svg"
 import Header from "../components/Header";
 import Footer from "../components/Footer"; 
+import {SpinnerLoader} from "./styled.js";
 
 const ProtectedRoute = ({ children, ...rest }) => {
   const userContext = useContext(UserContext);
@@ -13,7 +14,9 @@ const ProtectedRoute = ({ children, ...rest }) => {
   return (
     <Route {...rest}>
       {isLoading ? 
-        <Loader />
+          <SpinnerLoader>
+            <Loader/>
+          </SpinnerLoader>
         : user
           ? <React.Fragment>
               <Header />

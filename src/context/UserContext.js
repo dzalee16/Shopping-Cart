@@ -23,7 +23,6 @@ const UserContextProvider = ({ children }) => {
         return firestore.collection("users").doc(user.uid).get()
         .then(res => {
           if(res.exists){
-            console.log(res.data())
             const data = res.data();
             setUsername(data.username);
           }

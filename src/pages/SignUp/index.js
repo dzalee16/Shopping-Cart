@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { auth, firestore } from "../../services/fireConfig";
-import {Content, Form, ErrorMessage} from "./styled.js";
+import {Content, Form, ErrorMessage, Para} from "./styled.js";
+import {Link} from "react-router-dom";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -89,6 +90,7 @@ const SignUp = () => {
         />
         <ErrorMessage>{errorMessage}</ErrorMessage>
         <button type="submit">SignUp</button>
+        <Para>Alredy have account? <Link to="signin">SignIn</Link></Para>
       </Form>
     </Content>
   );

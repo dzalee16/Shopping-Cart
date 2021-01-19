@@ -16,7 +16,7 @@ export const Content = styled.div`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 350px;
   width: 300px;
   border: 1px solid white;
   border-radius: 10px;
@@ -55,5 +55,15 @@ export const Form = styled.form`
       &:hover {
         border: 1px solid white; 
       }
+  }
+`
+
+export const Para = styled.p`
+  text-align: center;
+  padding: 10px;
+
+  a {
+    text-decoration: none;
+    font-weight: 600;
   }
 `

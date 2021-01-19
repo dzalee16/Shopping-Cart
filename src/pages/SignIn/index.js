@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { auth } from "../../services/fireConfig";
-import {Content, Form} from "./styled.js";
+import {Link} from "react-router-dom";
+import {Content, Form, Para} from "./styled.js";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -39,6 +40,7 @@ const SignIn = () => {
         />
         <br />
         <button type="submit">SignIn</button>
+        <Para>Don't have an account? <Link to="signup">SignUp</Link></Para>
       </Form>
     </Content>
   );

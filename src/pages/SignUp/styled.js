@@ -66,3 +66,13 @@ export const ErrorMessage = styled.div`
   font-weight: 800;
   font-size: 18px;
 `
+
+export const Para = styled.p`
+  text-align: center;
+  padding: 10px;
+
+  a {
+    text-decoration: none;
+    font-weight: 600;
+  }
+`
