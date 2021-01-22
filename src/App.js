@@ -9,7 +9,7 @@ import UserContextProvider from "./context/UserContext";
 import PublicRoute from "./routes/PublicRoute";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import BgImage from "./assets/images/string.jpg";
-import {createGlobalStyle} from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -18,23 +18,27 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    height: 100vh;
+  }
+
   body {
     background: linear-gradient( rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.7) ), url(${BgImage});
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 100%;
     position: relative;
     font-family: "Oswald", sans-serif;
     color: white;
   }
-`
+`;
 
 const App = () => {
   return (
     <UserContextProvider>
-      <GlobalStyle/>
+      <GlobalStyle />
       <Router>
         <Switch>
           <PublicRoute exact path="/">

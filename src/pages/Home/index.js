@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getData } from "../../services/firestore";
+import { HomeContent } from "./styled.js";
 import Guitars from "../../components/Guitars";
 
 const Home = () => {
@@ -26,10 +27,10 @@ const Home = () => {
   }, [guitars]);
 
   return (
-    <div className="home">
-      <h1>Home</h1>
+    <HomeContent className="home">
+      {/* <h1>Home</h1> */}
       <Guitars guitars={guitars} />
-    </div>
+    </HomeContent>
   );
 };
 
