@@ -49,7 +49,6 @@ export const Ul = styled.ul`
 `;
 
 export const Li = styled.li`
-  border: 1px solid white;
   display: flex;
   flex-direction: column;
   align-items: center;
