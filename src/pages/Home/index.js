@@ -21,11 +21,14 @@ const Home = () => {
   useEffect(() => {
     const getGuitars = async () => {
       const data = await getData;
-      let arr = [];
+      let arrOfData = [];
       for (let doc of data.docs) {
-        arr.push(doc.data());
+        const data = doc.data();
+        const id = doc.id;
+        data.id = id;
+        arrOfData.push(data);
       }
-      setGuitars(arr);
+      setGuitars(arrOfData);
     };
     try {
       getGuitars();

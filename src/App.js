@@ -3,6 +3,7 @@ import Landing from "./pages/Landing";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Home from "./pages/Home";
+import CartItem from "./pages/CartItem";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import UserContextProvider from "./context/UserContext";
@@ -58,6 +59,14 @@ const App = () => {
           <ProtectedRoute exact path="/home">
             <Home />
           </ProtectedRoute>
+
+          <ProtectedRoute exact path="/cart/:slug">
+            <CartItem />
+          </ProtectedRoute>
+
+          {/* <ProtectedRoute exact path="/cart">
+            <Cart />
+          </ProtectedRoute> */}
         </Switch>
       </Router>
     </UserContextProvider>
