@@ -72,6 +72,12 @@ export const Liprotected = styled.li`
   &:hover {
     background: rgba(0, 0, 0, 0.3);
   }
+
+  a {
+    text-decoration: none;
+    color: white;
+    display: block;
+  }
 `;
 
 export const Username = styled.button`

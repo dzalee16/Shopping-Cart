@@ -57,7 +57,7 @@ export const Li = styled.li`
 
 export const Img = styled.img`
   width: 100%;
-  height: 83%;
+  height: 100%;
   object-fit: cover;
   display: block;
   opacity: 0.5;

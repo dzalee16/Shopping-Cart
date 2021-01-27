@@ -2,32 +2,36 @@ import styled from "styled-components";
 
 export const CartItemContent = styled.div`
   height: calc(100vh - 125px);
-  border: 3px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 50px;
 `;
 
 export const Image = styled.img`
   max-width: 100%;
-  height: 60%;
+  height: 40%;
+  border: 3px solid black;
 
   //tablet
   @media (min-width: 480px) {
-    max-width: 60%;
-    height: 60%;
+    max-width: 80%;
+    height: 50%;
+    border: 3px solid blue;
   }
 
   //Desktop
   @media (min-width: 992px) {
-    max-width: 60%;
-    height: 60%;
+    max-width: 50%;
+    height: 50%;
+    border: 3px solid red;
   }
 
   //Huge
   @media (min-width: 1280px) {
-    max-width: 60%;
-    height: 60%;
+    max-width: 50%;
+    height: 50%;
+    border: 3px solid yellow;
   }
 `;
 
@@ -52,5 +56,45 @@ export const Button = styled.button`
     background: rgba(0, 0, 0, 0.9);
     color: white;
     cursor: pointer;
+  }
+`;
+
+export const BtnIncrement = styled.button`
+  width: 40px;
+  height: 40px;
+  border: 1px solid white;
+  border-radius: 50%;
+  margin: 3px 5px;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  font-size: 1.5rem;
+  outline: none;
+
+  &:hover {
+    border: 1px solid green;
+    color: green;
+    cursor: pointer;
+    transform: scale(1.2);
+    background: rgba(0, 0, 0, 0.9);
+  }
+`;
+
+export const BtnDecrement = styled.button`
+  width: 40px;
+  height: 40px;
+  border: 1px solid white;
+  border-radius: 50%;
+  margin: 3px 5px;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  font-size: 1.5rem;
+  outline: none;
+
+  &:hover {
+    border: 1px solid red;
+    color: red;
+    cursor: pointer;
+    transform: scale(1.2);
+    background: rgba(0, 0, 0, 0.9);
   }
 `;

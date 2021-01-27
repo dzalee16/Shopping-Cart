@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getData } from "../../services/firestore";
+import { firestore } from "../../services/fireConfig";
 import { HomeContent, Search } from "./styled.js";
 import Guitars from "../../components/Guitars";
 
@@ -20,22 +20,26 @@ const Home = () => {
 
   useEffect(() => {
     const getGuitars = async () => {
-      const data = await getData;
-      let arrOfData = [];
-      for (let doc of data.docs) {
-        const data = doc.data();
-        const id = doc.id;
-        data.id = id;
-        arrOfData.push(data);
+      try {
+        const response = await firestore.collection("guitars").get();
+        const arrOfData = [];
+        for (let doc of response.docs) {
+          const data = doc.data();
+          const id = doc.id;
+          data.id = id;
+          arrOfData.push(data);
+        }
+        setGuitars(arrOfData);
+      } catch (err) {
+        console.log("Error has occured.", err);
       }
-      setGuitars(arrOfData);
     };
-    try {
-      getGuitars();
-    } catch (err) {
-      console.log("Error has occured!!!", err);
-    }
+    getGuitars();
   }, []);
+
+  useEffect(() => {
+    console.log(guitars);
+  }, [guitars]);
 
   return (
     <HomeContent className="home">

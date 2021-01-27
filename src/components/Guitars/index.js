@@ -4,7 +4,7 @@ import { Container, Ul, Li, Img, Span } from "./styled.js";
 
 const Guitars = ({ guitars }) => {
   return (
-    <Container className="guitars">
+    <Container>
       <Ul>
         {guitars.map((guitar, index) => (
           <Li key={index}>

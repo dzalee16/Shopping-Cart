@@ -55,7 +55,9 @@ const Header = () => {
                 <Dropdown>
                   <UlDropdown>
                     <Liprotected>{user.email}</Liprotected>
-                    <Liprotected>Your Cart</Liprotected>
+                    <Liprotected>
+                      <Link to="/cart">Your Cart</Link>
+                    </Liprotected>
                     <Liprotected onClick={handleSignOut}>SignOut</Liprotected>
                   </UlDropdown>
                 </Dropdown>

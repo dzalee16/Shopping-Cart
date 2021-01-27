@@ -4,6 +4,7 @@ import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Home from "./pages/Home";
 import CartItem from "./pages/CartItem";
+import Cart from "./pages/Cart";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import UserContextProvider from "./context/UserContext";
@@ -64,9 +65,9 @@ const App = () => {
             <CartItem />
           </ProtectedRoute>
 
-          {/* <ProtectedRoute exact path="/cart">
+          <ProtectedRoute exact path="/cart">
             <Cart />
-          </ProtectedRoute> */}
+          </ProtectedRoute>
         </Switch>
       </Router>
     </UserContextProvider>
