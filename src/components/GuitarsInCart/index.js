@@ -1,39 +1,61 @@
 import React from "react";
 import {
   Container,
+  Wrapper,
   Table,
   Tr,
   TableData,
   Img,
   TableDataModel,
+  Info,
 } from "./styled.js";
 
 const GuitarsInCart = ({ guitars }) => {
+  const handleSumTotalPrice = () => {
+    let sum = 0;
+    guitars.forEach((elem) => {
+      sum += elem.guitar.quantity * elem.guitar.price;
+    });
+    return sum;
+  };
+  let totalPrice = handleSumTotalPrice();
+
   return (
     <Container>
-      <Table>
-        <tbody>
-          <Tr>
-            <th>Image</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Subtotal</th>
-            <th></th>
-          </Tr>
-          {guitars.map((guitar, index) => (
-            <Tr key={index}>
-              <TableDataModel>
-                <Img src={guitar.url} alt="guitar" />
-                <span>{guitar.name}</span>
-              </TableDataModel>
-              <TableData>{guitar.price} $</TableData>
-              <TableData>{guitar.quantity}</TableData>
-              <TableData>{guitar.quantity * guitar.price} $</TableData>
-              <TableData></TableData>
+      <Wrapper>
+        <Table>
+          <thead>
+            <Tr>
+              <th>Model</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Subtotal</th>
+              <th></th>
             </Tr>
-          ))}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {guitars.map((elem, index) => (
+              <Tr key={index}>
+                <TableDataModel>
+                  <Img src={elem.guitar.url} alt="guitar" />
+                  <span>{elem.guitar.name}</span>
+                </TableDataModel>
+                <TableData>{elem.guitar.price} $</TableData>
+                <TableData>{elem.guitar.quantity}</TableData>
+                <TableData>
+                  {elem.guitar.quantity * elem.guitar.price} $
+                </TableData>
+                <TableData></TableData>
+              </Tr>
+            ))}
+          </tbody>
+        </Table>
+      </Wrapper>
+      <Info>
+        <p>Number of products: {guitars.length}</p>
+        <p>Total Price: {totalPrice} $</p>
+        <button>Purchase now</button>
+      </Info>
     </Container>
   );
 };

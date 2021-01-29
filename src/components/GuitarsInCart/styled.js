@@ -1,16 +1,44 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: auto;
+  margin-top: 40px;
 `;
 
-export const Table = styled.table`
+export const Wrapper = styled.div`
   width: 80%;
   margin: auto;
-  background: rgba(0, 0, 0, 0.7);
 
   @media (max-width: 700px) {
     width: 100%;
+  }
+`;
+
+export const Table = styled.table`
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background: rgba(0, 0, 0, 0.8);
+
+  tbody {
+    display: block;
+    width: 100%;
+    overflow-y: scroll;
+    height: 450px;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      box-shadow: inset 0 0 5px grey;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+    }
   }
 `;
 
@@ -20,8 +48,8 @@ export const Tr = styled.tr`
 
   th {
     width: 20%;
-    // border-bottom: 1px solid white;
     margin-bottom: 10px;
+    border-bottom: 0.5px solid white;
   }
 `;
 
@@ -60,5 +88,36 @@ export const Img = styled.img`
   @media (max-width: 700px) {
     width: 60px;
     height: 80%;
+  }
+`;
+
+export const Info = styled.div`
+  width: 300px;
+  margin: 60px auto;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid white;
+
+  p {
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  button {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    outline: none;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transform: scale(1.1);
+    }
   }
 `;

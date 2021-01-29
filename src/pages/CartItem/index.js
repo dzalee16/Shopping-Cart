@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { firestore } from "../../services/fireConfig";
 import { useParams, Link } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 import {
   CartItemContent,
   Image,
@@ -13,6 +14,12 @@ import {
 const CartItem = () => {
   const [guitar, setGuitar] = useState();
   const { slug } = useParams();
+  const userContext = useContext(UserContext);
+  const { user } = userContext;
+
+  useEffect(() => {
+    console.log(guitar);
+  }, [guitar]);
 
   useEffect(() => {
     const getSlug = async () => {
@@ -29,7 +36,10 @@ const CartItem = () => {
 
   const handleAddToCart = async () => {
     try {
-      const response = firestore.collection("carts").doc().set(guitar);
+      const response = firestore.collection("carts").doc().set({
+        guitar: guitar,
+        userId: user.uid,
+      });
       console.log("Sucefully added guitar to carts into firestore", response);
     } catch (err) {
       console.log("Error has occured", err);

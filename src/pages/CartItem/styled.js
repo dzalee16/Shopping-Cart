@@ -11,27 +11,23 @@ export const CartItemContent = styled.div`
 export const Image = styled.img`
   max-width: 100%;
   height: 40%;
-  border: 3px solid black;
 
   //tablet
   @media (min-width: 480px) {
     max-width: 80%;
     height: 50%;
-    border: 3px solid blue;
   }
 
   //Desktop
   @media (min-width: 992px) {
     max-width: 50%;
     height: 50%;
-    border: 3px solid red;
   }
 
   //Huge
   @media (min-width: 1280px) {
     max-width: 50%;
     height: 50%;
-    border: 3px solid yellow;
   }
 `;
 
@@ -56,6 +52,7 @@ export const Button = styled.button`
     background: rgba(0, 0, 0, 0.9);
     color: white;
     cursor: pointer;
+    transform: scale(1.1);
   }
 `;
 

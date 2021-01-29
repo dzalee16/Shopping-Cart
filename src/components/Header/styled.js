@@ -61,6 +61,13 @@ export const Liprotected = styled.li`
   width: 150px;
   border-bottom: 1px solid white;
 
+  div {
+    width: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   &:nth-child(1) {
     cursor: default;
   }
@@ -94,4 +101,9 @@ export const Dropdown = styled.div`
   top: 100%;
   left: 0;
   z-index: 2;
+`;
+
+export const CartImage = styled.img`
+  width: 30px;
+  filter: invert(99%);
 `;

@@ -29,7 +29,6 @@ const Cart = () => {
 
   return (
     <CartContent>
-      <h1>Cart</h1>
       <GuitarsInCart guitars={guitars} />
     </CartContent>
   );

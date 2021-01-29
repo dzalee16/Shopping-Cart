@@ -12,8 +12,10 @@ import {
   Username,
   Container,
   Dropdown,
+  CartImage,
 } from "./styled.js";
 import Logo from "../../assets/images/logo.svg";
+import Cart from "../../assets/images/cart.svg";
 
 const Header = () => {
   const userContext = useContext(UserContext);
@@ -56,7 +58,12 @@ const Header = () => {
                   <UlDropdown>
                     <Liprotected>{user.email}</Liprotected>
                     <Liprotected>
-                      <Link to="/cart">Your Cart</Link>
+                      <Link to="/cart">
+                        <div>
+                          <CartImage src={Cart} alt="cart" />
+                          <span>(1)</span>
+                        </div>
+                      </Link>
                     </Liprotected>
                     <Liprotected onClick={handleSignOut}>SignOut</Liprotected>
                   </UlDropdown>
