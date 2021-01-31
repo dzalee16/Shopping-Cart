@@ -1,6 +1,6 @@
 import React, { useContext, useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { auth } from "../../services/fireConfig";
+import { auth, firestore } from "../../services/fireConfig";
 import { UserContext } from "../../context/UserContext";
 import {
   Navigation,
@@ -24,8 +24,32 @@ const Header = () => {
   const [openDropdown, setOpenDropdown] = useState(false);
   const dropDownRef = useRef();
 
+  const [guitarsInCart, setGuitarsInCart] = useState([]);
+
   const handleSignOut = () => {
     auth.signOut();
+  };
+
+  const handleDropDown = async () => {
+    setOpenDropdown(!openDropdown);
+    try {
+      const response = await firestore
+        .collection("carts")
+        .where("userId", "==", auth.currentUser.uid)
+        .get();
+      const arrOfData = [];
+      for (let doc of response.docs) {
+        const data = doc.data();
+        arrOfData.push(data);
+      }
+      setGuitarsInCart(arrOfData);
+    } catch (err) {
+      console.log("Error has occured", err);
+    }
+  };
+
+  const handleInside = () => {
+    setOpenDropdown(false);
   };
 
   useEffect(() => {
@@ -50,18 +74,16 @@ const Header = () => {
               <GuitarLogo src={Logo} />
             </Link>
             <Container ref={dropDownRef}>
-              <Username onClick={() => setOpenDropdown(!openDropdown)}>
-                {username}
-              </Username>
+              <Username onClick={handleDropDown}>{username}</Username>
               {openDropdown && (
-                <Dropdown>
+                <Dropdown onClick={handleInside}>
                   <UlDropdown>
                     <Liprotected>{user.email}</Liprotected>
                     <Liprotected>
                       <Link to="/cart">
                         <div>
                           <CartImage src={Cart} alt="cart" />
-                          <span>(1)</span>
+                          <span>({guitarsInCart.length})</span>
                         </div>
                       </Link>
                     </Liprotected>

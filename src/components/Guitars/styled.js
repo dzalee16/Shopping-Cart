@@ -18,7 +18,7 @@ export const Container = styled.div`
 
   //Huge
   @media (min-width: 1280px) {
-    height: 1620px;
+    height: 1420px;
   }
 `;
 
@@ -43,7 +43,7 @@ export const Ul = styled.ul`
   //Huge
   @media (min-width: 1280px) {
     grid-template-columns: repeat(3, 20rem);
-    grid-template-rows: repeat(3, 30rem);
+    grid-template-rows: repeat(3, 25rem);
     grid-gap: 2rem 2rem;
   }
 `;

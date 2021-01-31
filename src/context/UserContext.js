@@ -11,23 +11,28 @@ const UserContextProvider = ({ children }) => {
   const userContext = {
     user: user,
     isLoading: isLoading,
-    username: username
+    username: username,
   };
 
   useEffect(() => {
-    auth.onAuthStateChanged(user => {
+    auth.onAuthStateChanged((user) => {
       setUser(user);
       if (user) {
         console.log("User is signIn", user);
         setIsLoading(false);
-        return firestore.collection("users").doc(user.uid).get()
-        .then(res => {
-          if(res.exists){
-            const data = res.data();
+        const getUsername = async () => {
+          try {
+            const response = await firestore
+              .collection("users")
+              .doc(user.uid)
+              .get();
+            const data = response.data();
             setUsername(data.username);
+          } catch (err) {
+            console.log("Error has occured", err);
           }
-        })
-        .catch(err => console.log("Error", err))
+        };
+        getUsername();
       } else {
         console.log("User is signOut", user);
         setIsLoading(false);

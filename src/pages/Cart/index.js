@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CartContent } from "./styled.js";
-import { firestore } from "../../services/fireConfig";
+import { firestore, auth } from "../../services/fireConfig";
 import GuitarsInCart from "../../components/GuitarsInCart";
 
 const Cart = () => {
@@ -9,7 +9,10 @@ const Cart = () => {
   useEffect(() => {
     const getCarts = async () => {
       try {
-        const response = await firestore.collection("carts").get();
+        const response = await firestore
+          .collection("carts")
+          .where("userId", "==", auth.currentUser.uid)
+          .get();
         const arrOfData = [];
         for (let doc of response.docs) {
           const data = doc.data();

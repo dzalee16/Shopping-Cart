@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Container,
   Wrapper,
@@ -55,6 +56,9 @@ const GuitarsInCart = ({ guitars }) => {
         <p>Number of products: {guitars.length}</p>
         <p>Total Price: {totalPrice} $</p>
         <button>Purchase now</button>
+        <Link to="/home">
+          <button>Back to home</button>
+        </Link>
       </Info>
     </Container>
   );
