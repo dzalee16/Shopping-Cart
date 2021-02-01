@@ -9,9 +9,11 @@ import {
   Img,
   TableDataModel,
   Info,
+  TrashImg,
 } from "./styled.js";
+import Trash from "../../assets/images/trash.svg";
 
-const GuitarsInCart = ({ guitars }) => {
+const GuitarsInCart = ({ guitars, handleRemoveGuitar }) => {
   const handleSumTotalPrice = () => {
     let sum = 0;
     guitars.forEach((elem) => {
@@ -46,7 +48,13 @@ const GuitarsInCart = ({ guitars }) => {
                 <TableData>
                   {elem.guitar.quantity * elem.guitar.price} $
                 </TableData>
-                <TableData></TableData>
+                <TableData>
+                  <TrashImg
+                    src={Trash}
+                    alt="Trash"
+                    onClick={() => handleRemoveGuitar(elem.id)}
+                  />
+                </TableData>
               </Tr>
             ))}
           </tbody>

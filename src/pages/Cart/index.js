@@ -16,6 +16,8 @@ const Cart = () => {
         const arrOfData = [];
         for (let doc of response.docs) {
           const data = doc.data();
+          const id = doc.id;
+          data.id = id;
           arrOfData.push(data);
         }
         setGuitars(arrOfData);
@@ -26,13 +28,33 @@ const Cart = () => {
     getCarts();
   }, []);
 
+  const handleRemoveGuitar = (id) => {
+    let newGuitars = [...guitars];
+    newGuitars = newGuitars.filter((guitar) => {
+      if (id !== guitar.id) {
+        return newGuitars;
+      } else {
+        firestore
+          .collection("carts")
+          .doc(guitar.id)
+          .delete()
+          .then(() => console.log("Succefully deleted guitar from cart"))
+          .catch((err) => console.log("Error has occured", err));
+      }
+    });
+    setGuitars(newGuitars);
+  };
+
   useEffect(() => {
     console.log(guitars);
   }, [guitars]);
 
   return (
     <CartContent>
-      <GuitarsInCart guitars={guitars} />
+      <GuitarsInCart
+        guitars={guitars}
+        handleRemoveGuitar={handleRemoveGuitar}
+      />
     </CartContent>
   );
 };

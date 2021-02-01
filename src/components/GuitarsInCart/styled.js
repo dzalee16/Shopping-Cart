@@ -121,3 +121,14 @@ export const Info = styled.div`
     }
   }
 `;
+
+export const TrashImg = styled.img`
+  width: 25px;
+  height: 30px;
+  filter: invert(99%);
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
