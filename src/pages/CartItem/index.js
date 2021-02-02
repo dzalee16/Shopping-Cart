@@ -18,10 +18,6 @@ const CartItem = () => {
   const { user } = userContext;
 
   useEffect(() => {
-    console.log(guitar);
-  }, [guitar]);
-
-  useEffect(() => {
     const getSlug = async () => {
       try {
         const response = await firestore.collection("guitars").doc(slug).get();
@@ -40,7 +36,7 @@ const CartItem = () => {
         guitar: guitar,
         userId: user.uid,
       });
-      console.log("Sucefully added guitar to carts into firestore", response);
+      console.log("Sucefully added guitar to cart into firestore", response);
     } catch (err) {
       console.log("Error has occured", err);
     }

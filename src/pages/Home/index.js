@@ -37,10 +37,6 @@ const Home = () => {
     getGuitars();
   }, []);
 
-  useEffect(() => {
-    console.log(guitars);
-  }, [guitars]);
-
   return (
     <HomeContent className="home">
       <Search

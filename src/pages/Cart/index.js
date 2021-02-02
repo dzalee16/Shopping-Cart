@@ -45,10 +45,6 @@ const Cart = () => {
     setGuitars(newGuitars);
   };
 
-  useEffect(() => {
-    console.log(guitars);
-  }, [guitars]);
-
   return (
     <CartContent>
       <GuitarsInCart

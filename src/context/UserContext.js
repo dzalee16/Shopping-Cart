@@ -18,7 +18,6 @@ const UserContextProvider = ({ children }) => {
     auth.onAuthStateChanged((user) => {
       setUser(user);
       if (user) {
-        console.log("User is signIn", user);
         setIsLoading(false);
         const getUsername = async () => {
           try {
