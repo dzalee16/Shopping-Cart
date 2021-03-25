@@ -67,6 +67,11 @@ export const Img = styled.img`
     opacity: 0.9;
     cursor: pointer;
   }
+
+  @media only screen and (max-width: 480px) {
+    width: 80%;
+    margin: auto;
+  }
 `;
 
 export const Span = styled.span`

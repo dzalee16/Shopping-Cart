@@ -6,6 +6,11 @@ export const CartItemContent = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 50px;
+
+  @media only screen and (max-width: 360px) {
+    padding: 0 0 30px 0;
+    height: calc(100vh - 125px);
+  }
 `;
 
 export const Image = styled.img`
